@@ -16,8 +16,8 @@ const ContactList = () => {
 
   return listOfContact.length > 0 ? (
     <ul className={css.list}>
-      {listOfContact.map(({ name, id, number }) => (
-        <ContactItem key={id} name={name} id={id} number={number} />
+      {listOfContact.map(({ name, id, phone }) => (
+        <ContactItem key={id} name={name} id={id} phone={phone} />
       ))}
     </ul>
   ) : (

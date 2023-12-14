@@ -1,13 +1,13 @@
 import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/contactsSlice';
+import { deleteContact } from '../../redux/operations';
 import css from './ContactItem.module.css';
 
-const ContactItem = ({ name, id, number }) => {
+const ContactItem = ({ name, id, phone }) => {
   const dispatch = useDispatch();
 
   return (
     <li className={css.item}>
-      {name + ': ' + number}
+      {name + ': ' + phone}
       <button
         className={css.button}
         type="button"
