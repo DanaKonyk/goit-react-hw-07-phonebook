@@ -1,13 +1,21 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
-import { getContacts, getError, getIsLoading } from '../redux/selectors';
+import { selectContacts, getError, getIsLoading } from '../redux/selectors';
+import { useEffect } from 'react';
+import { fetchContacts } from '../redux/operations';
 
 export const App = () => {
-  const listOfContacts = useSelector(getContacts);
+  const listOfContacts = useSelector(selectContacts);
   const loading = useSelector(getIsLoading);
   const error = useSelector(getError);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+
   return (
     <div>
       <h1>Phonebook</h1>
